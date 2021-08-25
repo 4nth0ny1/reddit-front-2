@@ -1,10 +1,9 @@
-
 import Post from './Post';
 
 const PostContainer = (props) => {
 
     const postArray = props.posts.map(post => {
-        return <Post key={post.id} post={post} deletePost={props.deletePost}/>
+        return <Post key={post.id} post={post} editPost={props.editPost} deletePost={props.deletePost}/>
     })
     return(
         <>

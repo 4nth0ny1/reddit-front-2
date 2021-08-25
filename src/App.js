@@ -29,18 +29,6 @@ function App() {
     setPosts(newPosts)
   }
 
-  // const editPost = (post, postId) => {
-  //   fetch(`http://127.0.0.1:3000/posts/${postId}`, {
-  //     method: "PATCH", 
-  //     headers: {
-  //       "Content-Type": "application/json", 
-  //     }, 
-  //     body: JSON.stringify(post)
-  //   })
-  //    const editedPosts = [...posts, post]
-  //    setPosts(editedPosts)
-  //  }
-
   const deletePost = (postId) => {
     fetch(`http://127.0.0.1:3000/posts/${postId}`, {
       method: 'DELETE'
