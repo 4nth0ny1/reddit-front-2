@@ -6,8 +6,7 @@ class PostForm extends Component {
         this.state = {
             title: '', 
             content: '', 
-            subreddit: ''
-            
+            subreddit: ''   
         }
     }
     
@@ -29,7 +28,6 @@ class PostForm extends Component {
                 [event.target.name]: [{}]
             })
         }
- 
 
         return(
             <>
@@ -40,8 +38,6 @@ class PostForm extends Component {
                     <input type="text" onChange={onChange} name="content" id="content" />
                     <label htmlFor="subreddit">subreddit</label>
                     <input type="text" onChange={onChange} name="subreddit" id="subreddit" />
-                    {/* <label htmlFor="id">id</label>
-                    <input type="number" onChange={onChange} name="id" id="id" /> */}
                     <button type="submit">Create Post</button>
                 </form>
             </>
