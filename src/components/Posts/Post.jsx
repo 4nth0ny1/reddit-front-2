@@ -30,9 +30,9 @@ const Post = (props) => {
         <>  
           <div className="post-container">
             <div className="counter">
-              <button onClick={() => setCounter(counter + 1)}>⇧</button>
-              <p>{counter}</p>
-              <button onClick={() => setCounter(counter - 1)}>⇩</button>
+              <div onClick={() => setCounter(counter + 1)}>▲</div>
+              <div>{counter}</div>
+              <div onClick={() => setCounter(counter - 1)}>▼</div>
             </div>
             <div className="content">
               <p>{props.post.title}</p>
