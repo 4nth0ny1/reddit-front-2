@@ -32,12 +32,13 @@ class PostForm extends Component {
         return(
             <>
                 <form className="post-form" onSubmit={handleSubmit}>
-                    <label htmlFor="title">title</label>
-                    <input type="text" onChange={onChange} name="title" id="title" />
-                    <label htmlFor="content">content</label>
-                    <input type="text" onChange={onChange} name="content" id="content" />
-                    <label htmlFor="subreddit">subreddit</label>
-                    <input type="text" onChange={onChange} name="subreddit" id="subreddit" />
+                    
+                    <input className="post-form-input" type="text" onChange={onChange} name="title" id="title" placeholder="title" />
+
+                    <input className="post-form-input post-content" type="text" onChange={onChange} name="content" id="content" placeholder="content" />
+                    
+                    <input className="post-form-input" type="text" onChange={onChange} name="subreddit" id="subreddit" placeholder="subreddit" />
+
                     <button type="submit">Create Post</button>
                 </form>
             </>

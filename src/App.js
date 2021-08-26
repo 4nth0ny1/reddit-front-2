@@ -51,7 +51,6 @@ function App() {
     setPosts(editedPosts)
    }
 
-
   const sortById = () => {
     const sortedPosts = [...posts].sort( function (a,b) {
       return a.id - b.id

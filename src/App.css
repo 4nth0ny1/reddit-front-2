@@ -39,4 +39,18 @@
 
 * {
   padding: 10px;
+
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-input {
+  
+}
+
+.post-content {
+  height: 100px;
 }

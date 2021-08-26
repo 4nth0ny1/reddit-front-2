@@ -6,7 +6,6 @@ const PostContainer = (props) => {
         return <Post key={post.id} post={post} editPost={props.editPost} deletePost={props.deletePost}/>
     })
 
-
     return(
         <>
             <div className="post-array">
