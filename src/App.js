@@ -39,11 +39,23 @@ function App() {
     setPosts(filteredPosts)
   }
 
+  const editPost = (post) => {
+    fetch(`http://127.0.0.1:3000/posts/${post.id}`, {
+      method: "PATCH", 
+      headers: {
+        "Content-Type": "application/json", 
+      }, 
+      body: JSON.stringify(post)
+    })
+    const editedPosts = [...posts, post]
+    setPosts(editedPosts)
+   }
+
   return (
     <>
       <h1>reddit </h1>
       <PostForm addPost={addPost} />
-      <PostContainer posts={posts} deletePost={deletePost} />
+      <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
     </>
   );
 }

@@ -21,17 +21,10 @@ const Post = (props) => {
         setComments(filteredComments)
     }
 
-    const editPost = (post) => {
-      fetch(`http://127.0.0.1:3000/posts/${post.id}`, {
-        method: "PATCH", 
-        headers: {
-          "Content-Type": "application/json", 
-        }, 
-        body: JSON.stringify(post)
-      })
-      // const editedPosts = [...posts, post]
-      // setPosts(editedPosts)
-     }
+    const handleEdit = (e) => {
+      debugger
+      props.editPost(props.post.id)
+    }
 
     return (
         <>
@@ -39,7 +32,7 @@ const Post = (props) => {
             <p>{props.post.content}</p>
             <p>{props.post.subreddit}</p>
             <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-            { showEditForm && <PostEditForm editPost={editPost} /> }
+            { showEditForm && <PostEditForm handleEdit={handleEdit} post={props.post} /> }
             <button onClick={() => setShowComments(!showComments)}>Comments</button>
             <button onClick={handleDelete}>Delete</button>
             { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
