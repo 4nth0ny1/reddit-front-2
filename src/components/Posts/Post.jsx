@@ -22,7 +22,6 @@ const Post = (props) => {
     }
 
     const handleEdit = (e) => {
-      
       props.editPost(props.post.id)
     }
 

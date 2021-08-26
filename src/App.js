@@ -51,10 +51,19 @@ function App() {
     setPosts(editedPosts)
    }
 
+
+  const sortById = () => {
+    const sortedPosts = [...posts].sort( function (a,b) {
+      return a.id - b.id
+    })
+    setPosts(sortedPosts)
+  }
+
   return (
     <>
       <h1>reddit </h1>
       <PostForm addPost={addPost} />
+      <button onClick={sortById}>Sort by Id</button>
       <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
     </>
   );
