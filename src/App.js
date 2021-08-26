@@ -58,11 +58,19 @@ function App() {
     setPosts(sortedPosts)
   }
 
+  const sortByCount = () => {
+    const sortedCounts = [...posts].sort( function (a,b) {
+      return a.id - b.id
+    })
+    setPosts(sortedCounts)
+  }
+
   return (
     <>
       <h1>reddit </h1>
       <PostForm addPost={addPost} />
       <button onClick={sortById}>Sort by Id</button>
+      <button onClick={sortByCount}>Sort by Count</button>
       <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
     </>
   );

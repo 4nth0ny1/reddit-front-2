@@ -47,10 +47,11 @@
   flex-direction: column;
 }
 
-.post-input {
-  
-}
-
 .post-content {
   height: 100px;
 }
+
+.post-container {
+  display: flex;
+}
+
