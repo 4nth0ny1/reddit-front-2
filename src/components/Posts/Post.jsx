@@ -22,7 +22,7 @@ const Post = (props) => {
     }
 
     const handleEdit = (e) => {
-      debugger
+      
       props.editPost(props.post.id)
     }
 
@@ -32,7 +32,7 @@ const Post = (props) => {
             <p>{props.post.content}</p>
             <p>{props.post.subreddit}</p>
             <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-            { showEditForm && <PostEditForm handleEdit={handleEdit} post={props.post} /> }
+            { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
             <button onClick={() => setShowComments(!showComments)}>Comments</button>
             <button onClick={handleDelete}>Delete</button>
             { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }

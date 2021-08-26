@@ -4,10 +4,10 @@ class PostEditForm extends Component {
     constructor(props) {
         super (props)
         this.state = {
-            title: this.props.title, 
-            content: this.props.content, 
-            subreddit: this.props.subreddit, 
-            id: this.props.id   
+            title: this.props.post.title, 
+            content: this.props.post.content, 
+            subreddit: this.props.post.subreddit, 
+            id: this.props.post.id   
         }
     }
     
@@ -20,7 +20,6 @@ class PostEditForm extends Component {
         }
 
         const handleEditSubmit = (event) => {
-            debugger
             event.preventDefault()
             this.props.editPost(this.state)
         }
@@ -29,11 +28,11 @@ class PostEditForm extends Component {
             <>
                 <form onSubmit={handleEditSubmit}>
                     <label htmlFor="title">title</label>
-                    <input type="text" onChange={onChange} name="title" id="title" value={this.props.title} />
+                    <input type="text" onChange={onChange} name="title" id="title" value={this.state.title} />
                     <label htmlFor="content">content</label>
-                    <input type="text" onChange={onChange} name="content" id="content" value={this.props.content} />
+                    <input type="text" onChange={onChange} name="content" id="content" value={this.state.content} />
                     <label htmlFor="subreddit">subreddit</label>
-                    <input type="text" onChange={onChange} name="subreddit" id="subreddit" value={this.props.subreddit} />
+                    <input type="text" onChange={onChange} name="subreddit" id="subreddit" value={this.state.subreddit} />
                     <button type="submit">Submit Changes</button>
                 </form>
             </>
