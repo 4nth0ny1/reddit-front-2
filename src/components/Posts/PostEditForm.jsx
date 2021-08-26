@@ -7,7 +7,8 @@ class PostEditForm extends Component {
             title: this.props.post.title, 
             content: this.props.post.content, 
             subreddit: this.props.post.subreddit, 
-            id: this.props.post.id   
+            id: this.props.post.id, 
+            count: this.props.post.count 
         }
     }
     

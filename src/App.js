@@ -60,7 +60,7 @@ function App() {
 
   const sortByCount = () => {
     const sortedCounts = [...posts].sort( function (a,b) {
-      return b.title - a.title
+      return b.count - a.count
     })
     setPosts(sortedCounts)
   }

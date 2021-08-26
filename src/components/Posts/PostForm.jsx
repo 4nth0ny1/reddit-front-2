@@ -6,7 +6,8 @@ class PostForm extends Component {
         this.state = {
             title: '', 
             content: '', 
-            subreddit: ''   
+            subreddit: '', 
+            count: 0 
         }
     }
     
