@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
 }
 
 html {
@@ -11,7 +10,6 @@ html {
 
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
@@ -33,7 +31,7 @@ html {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #d7dadc;
 }
 
 .App-link {
@@ -49,18 +47,7 @@ html {
   }
 }
 
-.post-form {
-  display: flex;
-  flex-direction: column;
-}
 
-.post-content {
-  height: 100px;
-}
-
-.post-container {
-  display: flex;
-}
 
 .top-button-container {
   display: flex;
@@ -71,10 +58,12 @@ html {
   width: 100%;
   height: 50px;
   border-radius: 10px;
+  margin-left: 0px !important;
+  background: #1a1a1b !important;
 }
 
 .create-button a {
-  color: white;
+  color: #d7dadc;
 }
 
 .sort-container {
@@ -86,23 +75,28 @@ html {
   align-items: center;
 }
 
-.sort-container button {
+button {
   margin: 0 10px 0 10px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #212122;
+  border: none;
+  color: #d7dadc;
 }
 
 .main-container {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 
 #root {
   padding: 0 !important;
   margin: 0 !important;
   background: black;
-  color: white;
+  color: #d7dadc;
 }
 
 .navigation {
-  margin-bottom: 25px !important;
+  margin-bottom: 50px !important;
 }
 
 .main-section-container {
@@ -118,7 +112,7 @@ html {
 
 .counter {
   width: 10%;
-  border-right: 1px solid white;
+  border-right: 1px solid #d7dadc;
   padding-top: 20px;
 }
 
@@ -135,10 +129,62 @@ html {
 
 .post-button-left-div {
   width: 10%;
-  border-right: 1px solid white;
+  border-right: 1px solid #d7dadc;
 }
 
 .post-button-right-div {
   border-top: 1px solid black;
   width: 90%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-button-right-div button {
+  height: 40px;
+  width: 100px;
+}
+
+.bg-dark {
+  background: #1a1a1b !important;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 800px;
+  border-radius: 10px !important;
+  
+}
+
+.post-form button {
+  width: 150px;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.post-form input {
+  min-height: 50px;
+  background: #1a1a1b !important;
+  border-right: none;
+  border-bottom: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #d7dadc;
+}
+
+::-webkit-input-placeholder {
+  color: #d7dadc;
+  padding: 10px;
+}
+
+.post-content {
+  height: 100px;
+}
+
+.post-container {
+  display: flex;
 }
