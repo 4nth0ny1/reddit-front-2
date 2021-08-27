@@ -97,10 +97,10 @@ function App() {
               </div>
               <div className="main-container">
                 <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
-                <button onClick={backToTop}>Back to Top</button>
+                
               </div>
             </div>
-          <Footer />
+          <Footer backToTop={backToTop}/>
         </Router>
       </div>
     </>

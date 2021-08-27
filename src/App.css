@@ -2,10 +2,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
+}
+
+html {
+  background: black;
 }
 
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -73,10 +79,19 @@
 
 .sort-container {
   margin-top: 10px;
+  background: #1a1a1b;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sort-container button {
+  margin: 0 10px 0 10px;
 }
 
 .main-container {
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 
 #root {
@@ -96,6 +111,34 @@
 }
 
 .entire-post-container {
-  border: 1px white solid;
+  border-radius: 10px;
   margin: 10px 0 10px 0;
+  background: #1a1a1b;
+}
+
+.counter {
+  width: 10%;
+  border-right: 1px solid white;
+  padding-top: 20px;
+}
+
+.content {
+  width: 90%;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.post-buttons {
+  display: flex;
+}
+
+.post-button-left-div {
+  width: 10%;
+  border-right: 1px solid white;
+}
+
+.post-button-right-div {
+  border-top: 1px solid black;
+  width: 90%;
 }

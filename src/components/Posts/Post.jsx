@@ -39,11 +39,16 @@ const Post = (props) => {
                 <p>{props.post.subreddit}</p>
               </div>
             </div>
-            <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-            { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
-            <button onClick={() => setShowComments(!showComments)}>Comments</button>
-            <button onClick={handleDelete}>Delete</button>
-            { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
+            <div className="post-buttons">
+              <div className="post-button-left-div"></div>
+              <div className="post-button-right-div">
+                <button onClick={() => setEdits(!showEditForm)}>Edit</button>
+                { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
+                <button onClick={() => setShowComments(!showComments)}>Comments</button>
+                <button onClick={handleDelete}>Delete</button>
+                { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
+              </div>
+            </div>
           </div>
         </>
     )
