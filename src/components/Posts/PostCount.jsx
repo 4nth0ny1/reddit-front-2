@@ -27,6 +27,7 @@ class PostCount extends Component {
     }
 
     handleSubmit = (e) => {
+        e.preventDefault()
         fetch(`http://127.0.0.1:3000/posts/${this.props.post.id}`, {
             method: "PATCH", 
             headers: {

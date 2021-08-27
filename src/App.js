@@ -12,7 +12,6 @@ function App() {
     fetch('http://127.0.0.1:3000/posts')
     .then(res => res.json())
     .then(data => {
-      
       setPosts(data)
     })
   }, [])   // useEffect continues to run, the empty array is a dependency array that is stops it from running when it sees an empty array 
@@ -25,8 +24,8 @@ function App() {
      }, 
      body: JSON.stringify(post)
    })
-    const newPosts = [...posts, post]
-    setPosts(newPosts)
+   const newPosts = [...posts, post]
+   setPosts(newPosts)
   }
 
   const deletePost = (postId) => {
