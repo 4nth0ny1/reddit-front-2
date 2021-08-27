@@ -5,6 +5,7 @@ import PostContainer from './components/Posts/PostContainer';
 import PostForm from './components/Posts/PostForm';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation, Footer, Home, About, Contact } from "./components";
+import { Link, withRouter } from "react-router-dom";
 
 function App() {
 
@@ -82,9 +83,11 @@ function App() {
               <Route path="/" exact component={() => <Home />} />
               <Route path="/about" exact component={() => <About />} />
               <Route path="/contact" exact component={() => <Contact />} />
+              <Route path="/submit" exact component={() => <PostForm addPost={addPost}/>} />
             </Switch>
-            <h1>reddit </h1>
-            <PostForm addPost={addPost} />
+            <button>
+                <Link to="/submit">Create Post</Link>
+            </button>
             <button onClick={sortById}>Latest Posts</button>
             <button onClick={sortByCount}>Top Votes</button>
             <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />

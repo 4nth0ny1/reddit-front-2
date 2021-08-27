@@ -24,6 +24,15 @@ function Navigation(props) {
               </li>
               <li
                 class={`nav-item  ${
+                  props.location.pathname === "/submit" ? "active" : ""
+                }`}
+              >
+                <Link class="nav-link" to="/submit">
+                  Create Post
+                </Link>
+              </li>
+              <li
+                class={`nav-item  ${
                   props.location.pathname === "/about" ? "active" : ""
                 }`}
               >
