@@ -64,6 +64,13 @@ function App() {
     setPosts(sortedCounts)
   }
 
+  const backToTop = () => {
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <>
       <h1>reddit </h1>
@@ -71,6 +78,7 @@ function App() {
       <button onClick={sortById}>Latest Posts</button>
       <button onClick={sortByCount}>Top Votes</button>
       <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
+      <button onClick={backToTop}>Back to Top</button>
     </>
   );
 }
