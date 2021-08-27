@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import PostContainer from './components/Posts/PostContainer';
 import PostForm from './components/Posts/PostForm';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Navigation, Footer, Home, About, Contact } from "./components";
 
 function App() {
 
@@ -73,12 +75,23 @@ function App() {
 
   return (
     <>
-      <h1>reddit </h1>
-      <PostForm addPost={addPost} />
-      <button onClick={sortById}>Latest Posts</button>
-      <button onClick={sortByCount}>Top Votes</button>
-      <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
-      <button onClick={backToTop}>Back to Top</button>
+      <div className="App">
+        <Router>
+          <Navigation />
+            <Switch>
+              <Route path="/" exact component={() => <Home />} />
+              <Route path="/about" exact component={() => <About />} />
+              <Route path="/contact" exact component={() => <Contact />} />
+            </Switch>
+            <h1>reddit </h1>
+            <PostForm addPost={addPost} />
+            <button onClick={sortById}>Latest Posts</button>
+            <button onClick={sortByCount}>Top Votes</button>
+            <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
+            <button onClick={backToTop}>Back to Top</button>
+          <Footer />
+        </Router>
+      </div>
     </>
   );
 }
