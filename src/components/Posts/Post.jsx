@@ -28,21 +28,23 @@ const Post = (props) => {
 
     return (
         <>  
-          <div className="post-container">
-            <div className="counter">
-              <PostCount post={props.post}/>
+        <div className="entire-post-container">
+            <div className="post-container">
+              <div className="counter">
+                <PostCount post={props.post}/>
+              </div>
+              <div className="content">
+                <p>{props.post.title}</p>
+                <p>{props.post.content}</p>
+                <p>{props.post.subreddit}</p>
+              </div>
             </div>
-            <div className="content">
-              <p>{props.post.title}</p>
-              <p>{props.post.content}</p>
-              <p>{props.post.subreddit}</p>
-            </div>
+            <button onClick={() => setEdits(!showEditForm)}>Edit</button>
+            { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
+            <button onClick={() => setShowComments(!showComments)}>Comments</button>
+            <button onClick={handleDelete}>Delete</button>
+            { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
           </div>
-          <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-          { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
-          <button onClick={() => setShowComments(!showComments)}>Comments</button>
-          <button onClick={handleDelete}>Delete</button>
-          { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
         </>
     )
 }

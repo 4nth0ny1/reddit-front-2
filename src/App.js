@@ -85,13 +85,21 @@ function App() {
               <Route path="/contact" exact component={() => <Contact />} />
               <Route path="/submit" exact component={() => <PostForm addPost={addPost}/>} />
             </Switch>
-            <button>
-                <Link to="/submit">Create Post</Link>
-            </button>
-            <button onClick={sortById}>Latest Posts</button>
-            <button onClick={sortByCount}>Top Votes</button>
-            <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
-            <button onClick={backToTop}>Back to Top</button>
+            <div className="main-section-container">
+              <div className="top-button-container">
+                <button className="create-button bg-dark">
+                    <Link to="/submit">Create Post</Link>
+                </button>
+                <div className="sort-container">
+                  <button onClick={sortById}>Latest Posts</button>
+                  <button onClick={sortByCount}>Top Votes</button>
+                </div>
+              </div>
+              <div className="main-container">
+                <PostContainer posts={posts} editPost={editPost} deletePost={deletePost} />
+                <button onClick={backToTop}>Back to Top</button>
+              </div>
+            </div>
           <Footer />
         </Router>
       </div>
