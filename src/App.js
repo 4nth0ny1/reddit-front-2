@@ -87,9 +87,12 @@ function App() {
             </Switch>
             <div className="main-section-container">
               <div className="top-button-container">
-                <button className="create-button bg-dark">
-                    <Link to="/submit">Create Post</Link>
-                </button>
+                <div className="create-post-container">
+                  <img src="https://i.pinimg.com/originals/f7/80/6c/f7806c9cd7d5e52cbb148541327a6b87.jpg" />
+                  <button className="create-button bg-dark">
+                      <Link to="/submit">Create Post</Link>
+                  </button>
+                </div>
                 <div className="sort-container">
                   <button onClick={sortById}>Latest Posts</button>
                   <button onClick={sortByCount}>Top Votes</button>

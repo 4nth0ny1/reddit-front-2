@@ -52,11 +52,22 @@ html {
   flex-direction: column;
 }
 
+.create-post-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-post-container img {
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: 20px !important;
+}
+
 .create-button {
-  width: 100%;
+  width: 90% !important;
   height: 50px;
   border-radius: 10px;
-  margin-left: 0px !important;
+  margin-left: 5px !important;
   background: #1a1a1b !important;
 }
 
