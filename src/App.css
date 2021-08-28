@@ -94,6 +94,14 @@ button {
   color: #d7dadc;
 }
 
+button:hover {
+  background: #ff5700;
+}
+
+button:focus {
+  outline: none !important;
+}
+
 .main-container {
   margin-bottom: 50px;
 }
@@ -120,6 +128,43 @@ button {
   background: #1a1a1b;
 }
 
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border: 1px solid #d7dadc;
+  text-align: left;
+}
+
+.post-comment-container {
+  display: flex;
+}
+
+.individual-post-container {
+  border-bottom: 1px solid black;
+}
+
+.post-comment-left {
+  width: 10%;
+  border-right: 1px solid #d7dadc;
+}
+
+.post-comment-right {
+  width: 90%;
+}
+
+.post-comment-right p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.post-comment-right button {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
 .counter {
   width: 10%;
   border-right: 1px solid #d7dadc;
@@ -144,6 +189,7 @@ button {
 
 .post-button-right-div {
   border-top: 1px solid black;
+  border-bottom: 1px solid black;
   width: 90%;
   height: 70px;
   display: flex;

@@ -46,6 +46,11 @@ const Post = (props) => {
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
                 <button onClick={() => setShowComments(!showComments)}>Comments</button>
                 <button onClick={handleDelete}>Delete</button>
+              </div>
+            </div>
+            <div className="post-comment-container">
+              <div className="post-comment-left"></div>
+              <div className="post-comment-right">
                 { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
               </div>
             </div>
