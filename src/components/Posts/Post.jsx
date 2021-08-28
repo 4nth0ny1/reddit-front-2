@@ -1,12 +1,14 @@
 import PostEditForm from "./PostEditForm"
 import CommentContainer from "../Comments/CommentContainer"
 import PostCount from './PostCount'
+import PostContentShow from './PostContentShow'
 import { useState } from 'react'
 
 const Post = (props) => {
     const [ showEditForm, setEdits ] = useState()
     const [ showComments, setShowComments ] = useState(false)
     const [ comments, setComments ] = useState(props.post.comments)
+    const [ content, showContent ] = useState(false)
 
     const handleDelete = (e) => {
         props.deletePost(props.post.id)
@@ -34,16 +36,15 @@ const Post = (props) => {
                 <PostCount post={props.post}/>
               </div>
               <div className="content">
-                <p>{props.post.title}</p>
-                <p>{props.post.content}</p>
-                <p>{props.post.subreddit}</p>
+                <a className="post-title" onClick={() => showContent(!content)}>{props.post.title}</a>
+                { content && <PostContentShow post={props.post}/> }
+                <p className="post-subreddit">r/{props.post.subreddit}</p>
               </div>
             </div>
             <div className="post-buttons">
               <div className="post-button-left-div"></div>
               <div className="post-button-right-div">
                 <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-                {/* { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> } */}
                 <button onClick={() => setShowComments(!showComments)}>Comments</button>
                 <button onClick={handleDelete}>Delete</button>
               </div>

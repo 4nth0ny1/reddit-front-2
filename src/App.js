@@ -92,6 +92,8 @@ function App() {
                   <button className="create-button bg-dark">
                       <Link to="/submit">Create Post</Link>
                   </button>
+                  <div className="create-button-left-right"></div>
+                  <div className="create-button-right-right"></div>
                 </div>
                 <div className="sort-container">
                   <button onClick={sortById}>Latest Posts</button>
