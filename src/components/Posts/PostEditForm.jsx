@@ -27,7 +27,7 @@ class PostEditForm extends Component {
 
         return(
             <>
-                <form onSubmit={handleEditSubmit}>
+                <form className="post-edit-form-container" onSubmit={handleEditSubmit}>
                     <label htmlFor="title">title</label>
                     <input type="text" onChange={onChange} name="title" id="title" value={this.state.title} />
                     <label htmlFor="content">content</label>

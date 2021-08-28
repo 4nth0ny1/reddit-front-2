@@ -248,3 +248,28 @@ button:focus {
   width: 50px !important;
   height: 50px !important;
 }
+
+.post-edit-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-edit-form-container input {
+  height: 50px;
+  background: #212122;
+  color: #d7dadc;
+  margin-left: 20px;
+  border-right: none;
+  width: 90%;
+}
+
+.post-edit-form-container label {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.post-edit-form-container button {
+  width: 200px;
+  text-align: center;
+}

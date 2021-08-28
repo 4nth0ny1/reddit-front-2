@@ -43,7 +43,7 @@ const Post = (props) => {
               <div className="post-button-left-div"></div>
               <div className="post-button-right-div">
                 <button onClick={() => setEdits(!showEditForm)}>Edit</button>
-                { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
+                {/* { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> } */}
                 <button onClick={() => setShowComments(!showComments)}>Comments</button>
                 <button onClick={handleDelete}>Delete</button>
               </div>
@@ -52,6 +52,7 @@ const Post = (props) => {
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
                 { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
+                { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
               </div>
             </div>
           </div>
