@@ -47,8 +47,6 @@ html {
   }
 }
 
-
-
 .top-button-container {
   display: flex;
   flex-direction: column;
@@ -157,7 +155,6 @@ button {
   margin-bottom: 50px;
   width: 800px;
   border-radius: 10px !important;
-  
 }
 
 .post-form button {
@@ -187,4 +184,9 @@ button {
 
 .post-container {
   display: flex;
+}
+
+.navbar-brand img {
+  width: 50px !important;
+  height: 50px !important;
 }

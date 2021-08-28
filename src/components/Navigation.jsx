@@ -7,7 +7,7 @@ function Navigation(props) {
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container">
           <Link class="navbar-brand" to="/">
-            Reddit
+            <img src="https://www.pngall.com/wp-content/uploads/2016/07/Reddit-Free-PNG-Image.png" />
           </Link>
 
           <div>
