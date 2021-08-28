@@ -55,6 +55,7 @@ html {
 .create-post-container {
   display: flex;
   flex-direction: row;
+  border: 1px white solid;
 }
 
 .create-post-container img {
