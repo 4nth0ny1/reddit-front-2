@@ -5,6 +5,8 @@ import PostContentShow from './PostContentShow'
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import { editPost, deletePost } from "../../redux/actions/postActions"
+import CommentForm from "../Comments/CommentForm"
+import { addComment } from "../../redux/actions/commentActions"
 
 const Post = (props) => {
     const [ showEditForm, setShowEditForm ] = useState(false)
@@ -55,6 +57,7 @@ const Post = (props) => {
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
                 { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
+                { showComments && <CommentForm comments={comments} addComment={addComment} />}
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
               </div>
             </div>

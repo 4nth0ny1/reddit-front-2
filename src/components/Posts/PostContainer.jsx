@@ -1,10 +1,9 @@
 import Post from './Post';
-import PostForm from './PostForm';
 
 const PostContainer = (props) => {
 
     const postArray = props.posts.map(post => {
-        return <Post key={post.id} post={post}/>
+        return <Post key={post.id} post={post} />
     })
 
     return(

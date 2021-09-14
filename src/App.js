@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import PostContainer from './components/Posts/PostContainer';
 import PostForm from './components/Posts/PostForm';
@@ -16,14 +16,6 @@ class App extends React.Component {
   }
 
   // const [ posts, setPosts ] = useState([])
-
-  // useEffect(() => {
-  //   fetch('http://127.0.0.1:3000/posts')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     setPosts(data)
-  //   })
-  // }, [])   // useEffect continues to run, the empty array is a dependency array that is stops it from running when it sees an empty array 
 
   // const sortById = () => {
   //   const sortedPosts = [...posts].sort( function (a,b) {
