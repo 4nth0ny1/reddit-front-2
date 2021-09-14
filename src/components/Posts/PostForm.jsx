@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { addPost } from "../../redux/actions/postActions";
+import { connect } from 'react-redux'
 
 class PostForm extends Component {
     constructor(props) {
@@ -44,4 +46,10 @@ class PostForm extends Component {
     }
 }
 
-export default PostForm;
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addPost: (post) => dispatch(addPost(post))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PostForm);

@@ -3,9 +3,11 @@ import CommentContainer from "../Comments/CommentContainer"
 import PostCount from './PostCount'
 import PostContentShow from './PostContentShow'
 import { useState } from 'react'
+import { connect } from 'react-redux'
+import { editPost, deletePost } from "../../redux/actions/postActions"
 
 const Post = (props) => {
-    const [ showEditForm, setEdits ] = useState()
+    const [ showEditForm, setShowEditForm ] = useState(false)
     const [ showComments, setShowComments ] = useState(false)
     const [ comments, setComments ] = useState(props.post.comments)
     const [ content, showContent ] = useState(false)
@@ -44,7 +46,7 @@ const Post = (props) => {
             <div className="post-buttons">
               <div className="post-button-left-div"></div>
               <div className="post-button-right-div">
-                <button onClick={() => setEdits(!showEditForm)}>Edit</button>
+                <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
                 <button onClick={() => setShowComments(!showComments)}>Comments</button>
                 <button onClick={handleDelete}>Delete</button>
               </div>
@@ -53,7 +55,7 @@ const Post = (props) => {
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
                 { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
-                { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} /> }
+                { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
               </div>
             </div>
           </div>
@@ -61,7 +63,14 @@ const Post = (props) => {
     )
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editPost: (post) => dispatch(editPost(post)),
+    deletePost: (id) => dispatch(deletePost(id))
+  }
+}
 
-export default Post;
+
+export default connect(null, mapDispatchToProps)(Post);
 
 

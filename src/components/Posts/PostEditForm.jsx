@@ -23,6 +23,7 @@ class PostEditForm extends Component {
         const handleEditSubmit = (event) => {
             event.preventDefault()
             this.props.editPost(this.state)
+            this.props.setShowEditForm(false)
         }
 
         return(
