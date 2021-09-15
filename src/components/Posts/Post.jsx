@@ -58,7 +58,7 @@ const Post = (props) => {
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
                 { showComments && <CommentContainer comments={comments} addComment={addComment} deleteComment={deleteComment}/> }
-                { showComments && <CommentForm comments={props.comments} addComment={addComment} setShowComments={setShowComments} />}
+                { showComments && <CommentForm commentId={props.commentId} comments={props.comments} addComment={addComment} setShowComments={setShowComments} />}
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
               </div>
             </div>
