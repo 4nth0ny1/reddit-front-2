@@ -2,7 +2,7 @@ import PostEditForm from "./PostEditForm"
 import CommentContainer from "../Comments/CommentContainer"
 import PostCount from './PostCount'
 import PostContentShow from './PostContentShow'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { editPost, deletePost } from "../../redux/actions/postActions"
 import CommentForm from "../Comments/CommentForm"
@@ -32,6 +32,7 @@ const Post = (props) => {
       props.editPost(props.post.id)
     }
 
+
     return (
         <>  
         <div className="entire-post-container">
@@ -56,8 +57,8 @@ const Post = (props) => {
             <div className="post-comment-container">
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
-                { showComments && <CommentContainer comments={comments} deleteComment={deleteComment}/> }
-                { showComments && <CommentForm comments={comments} addComment={addComment} />}
+                { showComments && <CommentContainer comments={comments} addComment={addComment} deleteComment={deleteComment}/> }
+                { showComments && <CommentForm comments={props.comments} addComment={addComment} setShowComments={setShowComments} />}
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
               </div>
             </div>
@@ -68,6 +69,7 @@ const Post = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addComment: (comment) => dispatch(addComment(comment)),
     editPost: (post) => dispatch(editPost(post)),
     deletePost: (id) => dispatch(deletePost(id))
   }
