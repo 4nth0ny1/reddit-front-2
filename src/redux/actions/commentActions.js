@@ -21,10 +21,8 @@ export const addComment = (comment) => {
             }, 
             body: JSON.stringify({comment})
         }
-
         return fetch(`http://127.0.0.1:3000/comments`, options)
         .then(res => res.json())
-
     }
 }
 
@@ -41,9 +39,6 @@ export const editComment = (comment) => {
 
         fetch(`http://localhost:3000/comments/${comment.id}`, options)
         .then(res => res.json())
-        .then(comment => {
-            dispatch({type: "EDIT_COMMENT", comment: comment})
-        })
     }
 }
 

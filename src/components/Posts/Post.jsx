@@ -6,16 +6,22 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { editPost, deletePost } from "../../redux/actions/postActions"
 import CommentForm from "../Comments/CommentForm"
-import { addComment } from "../../redux/actions/commentActions"
+import { addComment, editComment } from "../../redux/actions/commentActions"
+import CommentEditForm from "../Comments/CommentEditForm"
 
 const Post = (props) => {
     const [ showEditForm, setShowEditForm ] = useState(false)
     const [ showComments, setShowComments ] = useState(false)
     const [ comments, setComments ] = useState(props.post.comments)
     const [ content, showContent ] = useState(false)
+    const [ showCommentEditForm, setShowCommentEditForm ] = useState(false)
 
     const handleDelete = (e) => {
         props.deletePost(props.post.id)
+    }
+
+    const handleEdit = (e) => {
+      props.editPost(props.post.id)
     }
 
     const deleteComment = (commentId) => {
@@ -26,11 +32,20 @@ const Post = (props) => {
         setComments(filteredComments)
     }
 
-    const handleEdit = (e) => {
-      props.editPost(props.post.id)
+    const editComment = (commentId) => {
+      fetch(`http://127.0.0.1:3000/comments/${commentId}`, {
+        method: 'PATCH'
+      })
+      const filteredComments = comments.filter(comment => comment.id !== commentId)
+      setComments(filteredComments)
     }
 
     const addAComment = (comment) => {
+      const commentsArray = [...comments, comment]
+      setComments(commentsArray)
+    }
+
+    const editAComment = (comment) => {
       const commentsArray = [...comments, comment]
       setComments(commentsArray)
     }
@@ -59,9 +74,10 @@ const Post = (props) => {
             <div className="post-comment-container">
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
-                { showComments && <CommentContainer comments={comments} deleteComment={deleteComment} /> }
-                { showComments && <CommentForm addComment={addComment} setShowComments={setShowComments} addAComment={addAComment} postId={props.post.id}/>}
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
+                { showComments && <CommentForm addComment={addComment} setShowComments={setShowComments} addAComment={addAComment} postId={props.post.id}/>}
+                { showComments && <CommentContainer comments={comments} deleteComment={deleteComment} /> }
+                { showCommentEditForm && <CommentEditForm editComment={editComment} setShowCommentEditForm={setShowCommentEditForm} editAComment={editAComment} postId={props.post.id}/>}
               </div>
             </div>
           </div>
@@ -72,6 +88,7 @@ const Post = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addComment: (comment) => dispatch(addComment(comment)),
+    editComment: (comment) => dispatch(editComment(comment)),
     editPost: (post) => dispatch(editPost(post)),
     deletePost: (id) => dispatch(deletePost(id))
   }
