@@ -1,6 +1,3 @@
-import { connect } from 'react-redux'
-import { deleteComment } from '../../redux/actions/commentActions'
-
 const Comment = (props) => {
     
     const handleClick = () => {
@@ -17,11 +14,5 @@ const Comment = (props) => {
     )
 }
   
-  const mapDispatchToProps = (dispatch) => {
-      return {
-        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-      }
-  }
-  
-  export default connect(null, mapDispatchToProps)(Comment);
+export default Comment;
   

@@ -22,9 +22,7 @@ const Post = (props) => {
         fetch(`http://127.0.0.1:3000/comments/${commentId}`, {
           method: 'DELETE'
         })
-        const filteredComments = comments.filter(comment => {
-          return comment.id !== commentId
-        })
+        const filteredComments = comments.filter(comment => comment.id !== commentId)
         setComments(filteredComments)
     }
 
@@ -32,6 +30,10 @@ const Post = (props) => {
       props.editPost(props.post.id)
     }
 
+    const addAComment = (comment) => {
+      const commentsArray = [...comments, comment]
+      setComments(commentsArray)
+    }
 
     return (
         <>  
@@ -57,8 +59,8 @@ const Post = (props) => {
             <div className="post-comment-container">
               <div className="post-comment-left"></div>
               <div className="post-comment-right">
-                { showComments && <CommentContainer comments={comments} addComment={addComment} deleteComment={deleteComment}/> }
-                { showComments && <CommentForm commentId={props.commentId} comments={props.comments} addComment={addComment} setShowComments={setShowComments} />}
+                { showComments && <CommentContainer comments={comments} deleteComment={deleteComment} /> }
+                { showComments && <CommentForm addComment={addComment} setShowComments={setShowComments} addAComment={addAComment} postId={props.post.id}/>}
                 { showEditForm && <PostEditForm editPost={props.editPost} handleEdit={handleEdit} post={props.post} setShowEditForm={setShowEditForm}/> }
               </div>
             </div>

@@ -7,7 +7,7 @@ class CommentForm extends Component {
         super (props)
         this.state = { 
             content: '', 
-            post_id: '',
+            post_id: this.props.postId,
             id: ''
         }
     }
@@ -22,7 +22,7 @@ class CommentForm extends Component {
 
         const handleSubmit = (event) => {
             event.preventDefault()
-            this.props.addComment(this.state)
+            this.props.addComment(this.state).then(comment => this.props.addAComment(comment))
             Array.from(document.querySelectorAll("input")).forEach(
                 input => (input.value = "")
             )
