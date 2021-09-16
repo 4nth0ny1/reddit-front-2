@@ -37,7 +37,7 @@ export const editComment = (comment) => {
             body: JSON.stringify({comment})
         }
 
-        fetch(`http://localhost:3000/comments/${comment.id}`, options)
+        return fetch(`http://localhost:3000/comments/${comment.id}`, options)
         .then(res => res.json())
     }
 }
@@ -47,11 +47,7 @@ export const deleteComment = (commentId) => {
         const options = {
             method: "DELETE"
         }
-
-        fetch(`http://localhost:3000/comments/${commentId}`, options)
+        return fetch(`http://localhost:3000/comments/${commentId}`, options)
         .then(res => res.json())
-        .then(message => {
-            dispatch({type: "DELETE_COMMENT", id: commentId})
-        })
     }
 }
