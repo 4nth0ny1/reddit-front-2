@@ -47,7 +47,6 @@ export const deleteComment = (commentId) => {
         const options = {
             method: "DELETE"
         }
-        return fetch(`http://localhost:3000/comments/${commentId}`, options)
-        .then(res => res.json())
+        fetch(`http://localhost:3000/comments/${commentId}`, options)
     }
 }

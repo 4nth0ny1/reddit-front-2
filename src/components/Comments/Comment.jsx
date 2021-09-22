@@ -9,7 +9,8 @@ const Comment = (props) => {
 
     
     const handleClick = () => {
-        props.deleteComment(props.comment.id).then(comment => props.deleteAComment(comment.id))
+        props.deleteComment(props.comment.id)
+        props.deleteAComment(props.comment.id)
     }
        
     return (

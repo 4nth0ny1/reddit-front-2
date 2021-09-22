@@ -34,7 +34,9 @@ const Post = (props) => {
 
     const editAComment = (comment) => {
       const index = comments.findIndex(commentObj => commentObj.id === comment.id)
-      const commentsArray = [comments.slice(0, index), comment, comments.slice(index + 1)]
+    
+      const commentsArray = [comments.slice(0, index), comment, comments.slice(index + 1)].flat()
+      
       setComments(commentsArray)
     }
 

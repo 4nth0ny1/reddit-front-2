@@ -21,7 +21,7 @@ class CommentEditForm extends Component {
         const handleSubmit = (event) => {
             event.preventDefault()
             this.props.editComment(this.state).then(comment => this.props.editAComment(comment))
-            this.props.setShowEditForm(false)
+            this.props.setShowCommentEditForm(false)
             Array.from(document.querySelectorAll("input")).forEach(
                 input => (input.value = "")
             )
