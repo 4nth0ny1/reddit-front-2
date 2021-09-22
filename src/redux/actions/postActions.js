@@ -62,3 +62,15 @@ export const deletePost = (postId) => {
         })
     }
 }
+
+export const sortByCount = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_COUNT"})
+    }
+}
+
+export const sortById = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_ID"})
+    }
+}

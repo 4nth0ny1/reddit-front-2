@@ -19,6 +19,16 @@ const postReducer = (state = { posts: [] }, action) => {
             return {
                 posts: editPost
             }
+        case "SORT_BY_COUNT":
+            const sortByCount = state.posts.sort((a,b) => b.count - a.count)
+            return{
+                posts: [...sortByCount]
+            }
+        case "SORT_BY_ID": 
+            const sortById = state.posts.sort((a,b) => b.id - a.id)
+            return{
+                posts: [...sortById]
+            }
         
         default: 
             return state

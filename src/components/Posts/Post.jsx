@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { editPost, deletePost } from "../../redux/actions/postActions"
 import CommentForm from "../Comments/CommentForm"
-import { addComment, editComment } from "../../redux/actions/commentActions"
+import { addComment } from "../../redux/actions/commentActions"
 
 const Post = (props) => {
     const [ showEditForm, setShowEditForm ] = useState(false)
@@ -27,14 +27,6 @@ const Post = (props) => {
         setComments(filteredComments)
     }
 
-    // const editComment = (commentId) => {
-    //   fetch(`http://127.0.0.1:3000/comments/${commentId}`, {
-    //     method: 'PATCH'
-    //   })
-    //   const filteredComments = comments.filter(comment => comment.id !== commentId)
-    //   setComments(filteredComments)
-    // }
-
     const addAComment = (comment) => {
       const commentsArray = [...comments, comment]
       setComments(commentsArray)
@@ -54,7 +46,7 @@ const Post = (props) => {
                 <PostCount post={props.post}/>
               </div>
               <div className="content">
-                <a className="post-title" onClick={() => showContent(!content)}>{props.post.title}</a>
+                <div className="post-title" onClick={() => showContent(!content)}>{props.post.title}</div>
                 { content && <PostContentShow post={props.post}/> }
                 <p className="post-subreddit">r/{props.post.subreddit}</p>
               </div>

@@ -31,7 +31,9 @@ class PostForm extends Component {
             this.setState({
                 [event.target.name]: [{}]
             })
+            window.location.href = '/'
         }
+
 
         return(
             <>
