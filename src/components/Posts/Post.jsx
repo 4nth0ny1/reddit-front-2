@@ -34,9 +34,7 @@ const Post = (props) => {
 
     const editAComment = (comment) => {
       const index = comments.findIndex(commentObj => commentObj.id === comment.id)
-    
       const commentsArray = [comments.slice(0, index), comment, comments.slice(index + 1)].flat()
-      
       setComments(commentsArray)
     }
 
@@ -56,8 +54,8 @@ const Post = (props) => {
             <div className="post-buttons">
               <div className="post-button-left-div"></div>
               <div className="post-button-right-div">
-                <button onClick={() => setShowEditForm(!showEditForm)}>Edit</button>
-                <button onClick={() => setShowComments(!showComments)}>Comments</button>
+                <button onClick={() => setShowEditForm(!showEditForm)}>{ showEditForm ? 'Editing' : 'Edit' }</button>
+                <button onClick={() => setShowComments(!showComments)}> { showComments ? 'Commenting' : 'Comments'} </button>
                 <button onClick={handleDelete}>Delete</button>
               </div>
             </div>

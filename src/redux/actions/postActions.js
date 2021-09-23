@@ -71,3 +71,21 @@ export const sortById = () => {
         dispatch({type: "SORT_BY_ID"})
     }
 }
+
+export const sortByLargestTitle = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_LARGEST_TITLE"})
+    }
+}
+
+export const sortBySubreddit = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_SUBREDDIT"})
+    }
+}
+
+export const sortByNumComments = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_NUM_COMMENTS"})
+    }
+}

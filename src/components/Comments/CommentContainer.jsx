@@ -6,7 +6,7 @@ const CommentContainer = (props) => {
     })
     return(
         <>
-            {commentArray}
+            { props.comments.length === 0 ? 'This post does not have any comments.' : commentArray }
         </>
     )
 }

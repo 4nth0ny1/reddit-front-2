@@ -66,7 +66,7 @@ html {
 }
 
 .create-button {
-  width: 70% !important;
+  width: 600px;
   height: 50px;
   border-radius: 10px;
   margin-left: 5px !important;
@@ -223,7 +223,7 @@ button:focus {
 
 .post-button-right-div button {
   height: 40px;
-  width: 100px;
+  width: 110px;
 }
 
 .bg-dark {
@@ -296,4 +296,10 @@ button:focus {
 .post-edit-form-container button {
   width: 200px;
   text-align: center;
+}
+
+textarea {
+  margin-bottom: -10px;
+  background: #212529;
+  border-radius: 10px;
 }

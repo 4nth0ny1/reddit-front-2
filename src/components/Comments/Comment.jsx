@@ -7,7 +7,6 @@ import { deleteComment } from '../../redux/actions/commentActions'
 const Comment = (props) => {
     const [ showCommentEditForm, setShowCommentEditForm ] = useState(false)
 
-    
     const handleClick = () => {
         props.deleteComment(props.comment.id)
         props.deleteAComment(props.comment.id)
@@ -17,7 +16,7 @@ const Comment = (props) => {
         <>
             <div className="individual-post-container" key={props.commentId}>
                 <p>{props.comment.content}</p>
-                <button onClick={() => setShowCommentEditForm(!showCommentEditForm)}>Edit</button>
+                <button onClick={() => setShowCommentEditForm(!showCommentEditForm)}>{ showCommentEditForm ? 'Editing' : 'Edit'}</button>
                 <button onClick={handleClick}>Delete</button> 
                 { showCommentEditForm && <CommentEditForm setShowCommentEditForm={setShowCommentEditForm} editAComment={props.editAComment} comment={props.comment} />}
             </div>

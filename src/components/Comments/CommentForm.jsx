@@ -34,7 +34,7 @@ class CommentForm extends Component {
         return(
             <>
                 <form className="comment-form" onSubmit={handleSubmit}>
-                    <input className="comment-form-input comment-content" type="text" onChange={onChange} name="content" id="content" placeholder="content" />
+                    <textarea onChange={onChange} name="content" id="content" placeholder="content" rows="2" cols="50"/>
                     <button type="submit">Add Comment</button>
                 </form>
             </>

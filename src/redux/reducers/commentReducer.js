@@ -19,6 +19,7 @@ const commentReducer = (state = { comments: [] }, action) => {
             return {
                 comments: editComment
             }
+
         
         default: 
             return state
