@@ -49,9 +49,9 @@ class PostCount extends Component {
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <button type="submit" onClick={this.increment}>▲</button>
-                    <div onChange={onChange}>{this.state.count}</div>
-                    <button type="submit" onClick={this.decrement}>▼</button>
+                    <button className="counter-button" type="submit" onClick={this.increment}>▲</button>
+                    { this.state.count < 0 ? <div>-</div> : <div onChange={onChange}>{this.state.count}</div>}
+                    <button className="counter-button" type="submit" onClick={this.decrement}>▼</button>
                 </form>
             </>
         )

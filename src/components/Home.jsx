@@ -18,13 +18,7 @@ class Home extends React.Component {
     this.props.fetchPosts()
   }
 
-
-
   render () {
-
-
-
-
 
     return (
       <div className="home">
