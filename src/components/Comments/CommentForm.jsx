@@ -23,8 +23,8 @@ class CommentForm extends Component {
         const handleSubmit = (event) => {
             event.preventDefault()
             this.props.addComment(this.state).then(comment => this.props.addAComment(comment))
-            Array.from(document.querySelectorAll("input")).forEach(
-                input => (input.value = "")
+            Array.from(document.querySelectorAll("textarea")).forEach(
+                textarea => (textarea.value = "")
             )
             this.setState({
                 [event.target.name]: [{}]

@@ -8,15 +8,23 @@ import {
   sortById, 
   sortByLargestTitle,
   sortBySubreddit, 
+  sortByDescSubreddit,
   sortByNumComments
 } 
 from '../redux/actions/postActions'
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {sortBySubReddit: false};
+  }
   
   componentDidMount(){
     this.props.fetchPosts()
   }
+
+
+
 
   render () {
 
@@ -33,7 +41,7 @@ class Home extends React.Component {
             <div className="sort-container">
               <button onClick={this.props.sortById}>Latest Posts</button>
               <button onClick={this.props.sortByCount}>Top Votes</button> 
-              <button onClick={this.props.sortBySubreddit}>Subreddit A-Z</button> 
+              { this.props.sortBySubreddit ? <button onClick={this.props.sortBySubreddit}>Subreddit A-Z</button> : <button onClick={this.props.sortByDescSubreddit}>Subreddit Z-A</button> }
               <button onClick={this.props.sortByLargestTitle}>Largest Title</button> 
               <button onClick={this.props.sortByNumComments}>Most Comments</button> 
             </div>
@@ -59,6 +67,7 @@ const mapDispatchToProps = (dispatch) => {
     sortByCount: () => dispatch(sortByCount()), 
     sortById: () => dispatch(sortById()),
     sortBySubreddit: () => dispatch(sortBySubreddit()),
+    sortByDescSubreddit: () => dispatch(sortByDescSubreddit()),
     sortByLargestTitle: () => dispatch(sortByLargestTitle()),
     sortByNumComments: () => dispatch(sortByNumComments())
   }

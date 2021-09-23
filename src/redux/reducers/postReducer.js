@@ -49,6 +49,21 @@ const postReducer = (state = { posts: [] }, action) => {
             return{
                 posts: [...sortBySubreddit]
             }
+        case "SORT_BY_DESC_SUBREDDIT": 
+            const sortByDescSubreddit = state.posts.sort((a,b) => {
+                let subredditA = a.subreddit.toUpperCase()
+                let subredditB = b.subreddit.toUpperCase()
+                if (subredditA > subredditB) {
+                    return -1
+                } 
+                if (subredditA < subredditB) {
+                    return 1
+                }
+                return 0
+            })
+            return{
+                posts: [...sortByDescSubreddit]
+            }
         case "SORT_BY_NUM_COMMENTS": 
             const sortByNumComments = state.posts.sort((a,b) => b.comments.length - a.comments.length)
             return{

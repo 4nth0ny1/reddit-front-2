@@ -304,4 +304,7 @@ textarea {
   border-radius: 10px;
 }
 
+.comment-number {
+  background: gray;
+}
 

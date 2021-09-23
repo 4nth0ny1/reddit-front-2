@@ -55,7 +55,7 @@ const Post = (props) => {
               <div className="post-button-left-div"></div>
               <div className="post-button-right-div">
                 <button onClick={() => setShowEditForm(!showEditForm)}>{ showEditForm ? 'Editing' : 'Edit' }</button>
-                <button onClick={() => setShowComments(!showComments)}> { showComments ? 'Commenting' : 'Comments'} </button>
+                <button onClick={() => setShowComments(!showComments)}> { showComments ? 'Commenting' : `Comments ${props.post.comments.length}`} </button>
                 <button onClick={handleDelete}>Delete</button>
               </div>
             </div>

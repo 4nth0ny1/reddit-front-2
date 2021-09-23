@@ -84,6 +84,12 @@ export const sortBySubreddit = () => {
     }
 }
 
+export const sortByDescSubreddit = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_DESC_SUBREDDIT"})
+    }
+}
+
 export const sortByNumComments = () => {
     return (dispatch) => {
         dispatch({type: "SORT_BY_NUM_COMMENTS"})
