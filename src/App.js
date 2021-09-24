@@ -6,7 +6,7 @@ import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import About from './components/About'
-import Contact from './components/Contact'
+import Terms from './components/Terms'
 
 class App extends React.Component {
   render(){
@@ -19,7 +19,7 @@ class App extends React.Component {
               <Switch>
                 <Route path="/" exact component={() => <Home />} />
                 <Route path="/about" exact component={() => <About />} />
-                <Route path="/contact" exact component={() => <Contact />} />
+                <Route path="/terms" exact component={() => <Terms />} />
                 <Route path="/posts/new" exact component={() => <PostForm />} />
               </Switch>
             <Footer />

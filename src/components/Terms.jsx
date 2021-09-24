@@ -1,9 +1,9 @@
 
 import React from "react";
 
-function Contact() {
+function Terms() {
   return (
-    <div className="contact">
+    <div className="terms">
     <h2>Reddit User Agreement</h2>
     <p>
     
@@ -325,4 +325,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Terms;
