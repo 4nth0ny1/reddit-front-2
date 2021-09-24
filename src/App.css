@@ -270,6 +270,7 @@ button:focus {
 
 .post-container {
   display: flex;
+  
 }
 
 .navbar-brand img {
@@ -316,3 +317,22 @@ textarea {
   color: #ff5700;
 }
 
+.footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.about, .contact {
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+
+.home {
+  margin-bottom: 200px;
+}
+
+.search-bar-input {
+  width: 400px;
+}
