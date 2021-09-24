@@ -4,6 +4,13 @@ const postReducer = (state = { posts: [] }, action) => {
             return {
                 posts: action.posts
             }
+        case "FILTER_POSTS":
+            
+            const filterBySearch = state.posts.filter(post => post.title.includes(action.search))
+            
+            return{
+                posts: [...filterBySearch]
+            }
         case "ADD_POST":
             return {
                 posts: [...state.posts, action.post]
@@ -33,6 +40,11 @@ const postReducer = (state = { posts: [] }, action) => {
             const sortByLargestTitle = state.posts.sort((a,b) => b.title.length - a.title.length)
             return{
                 posts: [...sortByLargestTitle]
+            }
+        case "SORT_BY_SMALLEST_TITLE": 
+            const sortBySmallestTitle = state.posts.sort((a,b) => a.title.length - b.title.length)
+            return{
+                posts: [...sortBySmallestTitle]
             }
         case "SORT_BY_SUBREDDIT": 
             const sortBySubreddit = state.posts.sort((a,b) => {
@@ -68,6 +80,11 @@ const postReducer = (state = { posts: [] }, action) => {
             const sortByNumComments = state.posts.sort((a,b) => b.comments.length - a.comments.length)
             return{
                 posts: [...sortByNumComments]
+            }
+        case "SORT_BY_LEAST_NUM_COMMENTS": 
+            const sortByLeastNumComments = state.posts.sort((a,b) => a.comments.length - b.comments.length)
+            return{
+                posts: [...sortByLeastNumComments]
             }
         
         default: 

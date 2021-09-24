@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import Search from './Search'
 
 function Navigation(props) {
   return (
@@ -9,7 +10,7 @@ function Navigation(props) {
           <Link className="navbar-brand" to="/">
             <img alt="logo" src="https://www.pngall.com/wp-content/uploads/2016/07/Reddit-Free-PNG-Image.png" />
           </Link>
-
+          <Search />
           <div>
             <ul className="navbar-nav ml-auto">
               <li

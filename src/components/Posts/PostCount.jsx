@@ -8,21 +8,25 @@ class PostCount extends Component {
             content: this.props.post.content, 
             subreddit: this.props.post.subreddit, 
             id: this.props.post.id, 
-            count: this.props.post.count 
+            count: this.props.post.count,
+            increment: false,
+            decrement: false
         }
     }
 
     increment = (e) => {
         this.setState({
             ...this.state.count,
-            count: this.state.count + 1
+            count: this.state.count + 1,
+            increment: true
         })
     }
 
     decrement = (e) => {
         this.setState({
             ...this.state.count,
-            count: this.state.count - 1
+            count: this.state.count - 1,
+            decrement: true
         })
     }
 
@@ -49,9 +53,9 @@ class PostCount extends Component {
         return(
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <button className="counter-button" type="submit" onClick={this.increment}>▲</button>
+                    <button className={`counter-button ${this.state.increment ? 'orange-bg' : ''}`} type="submit" onClick={this.increment}>▲</button>
                     { this.state.count < 0 ? <div>-</div> : <div onChange={onChange}>{this.state.count}</div>}
-                    <button className="counter-button" type="submit" onClick={this.decrement}>▼</button>
+                    <button className={`counter-button ${this.state.decrement ? 'orange-bg' : ''}`} type="submit" onClick={this.decrement}>▼</button>
                 </form>
             </>
         )

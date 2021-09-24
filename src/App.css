@@ -112,6 +112,10 @@ button:hover {
   background: #ff5700;
 }
 
+.counter-button:hover {
+  background: grey;
+}
+
 button:focus {
   outline: none !important;
 }
@@ -306,5 +310,9 @@ textarea {
 
 .comment-number {
   background: gray;
+}
+
+.orange-bg {
+  color: #ff5700;
 }
 

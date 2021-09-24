@@ -78,6 +78,12 @@ export const sortByLargestTitle = () => {
     }
 }
 
+export const sortBySmallestTitle = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_SMALLEST_TITLE"})
+    }
+}
+
 export const sortBySubreddit = () => {
     return (dispatch) => {
         dispatch({type: "SORT_BY_SUBREDDIT"})
@@ -93,5 +99,17 @@ export const sortByDescSubreddit = () => {
 export const sortByNumComments = () => {
     return (dispatch) => {
         dispatch({type: "SORT_BY_NUM_COMMENTS"})
+    }
+}
+
+export const sortByLeastNumComments = () => {
+    return (dispatch) => {
+        dispatch({type: "SORT_BY_LEAST_NUM_COMMENTS"})
+    }
+}
+
+export const filterBySearch = (search) => {
+    return (dispatch) => {
+        dispatch({type: "FILTER_POSTS", search: search})
     }
 }

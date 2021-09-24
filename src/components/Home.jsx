@@ -7,26 +7,65 @@ import {
   sortByCount, 
   sortById, 
   sortByLargestTitle,
+  sortBySmallestTitle,
   sortBySubreddit, 
   sortByDescSubreddit,
-  sortByNumComments
+  sortByNumComments, 
+  sortByLeastNumComments
 } 
 from '../redux/actions/postActions'
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {sortBySubReddit: false};
-  }
+
+  
   
   componentDidMount(){
     this.props.fetchPosts()
   }
 
-
-
+  constructor(props){
+    super(props)
+    this.state = {
+      subredditSort: true, 
+      titleSort: true, 
+      commentSort: true
+    }
+  }
 
   render () {
+
+    const handleSubredditSort = () => {
+      if (this.state.subredditSort) {
+        this.props.sortBySubreddit()
+      } else {
+        this.props.sortByDescSubreddit()
+      }
+      this.setState({
+        subredditSort: !this.state.subredditSort
+      })
+    } 
+
+    const handleTitleSort = () => {
+      if (this.state.titleSort) {
+        this.props.sortByLargestTitle()
+      } else {
+        this.props.sortBySmallestTitle()
+      }
+      this.setState({
+        titleSort: !this.state.titleSort
+      })
+    } 
+
+    const handleCommentSort = () => {
+      if (this.state.commentSort) {
+        this.props.sortByNumComments()
+      } else {
+        this.props.sortByLeastNumComments()
+      }
+      this.setState({
+        commentSort: !this.state.commentSort
+      })
+    } 
 
     return (
       <div className="home">
@@ -41,9 +80,10 @@ class Home extends React.Component {
             <div className="sort-container">
               <button onClick={this.props.sortById}>Latest Posts</button>
               <button onClick={this.props.sortByCount}>Top Votes</button> 
-              { this.props.sortBySubreddit ? <button onClick={this.props.sortBySubreddit}>Subreddit A-Z</button> : <button onClick={this.props.sortByDescSubreddit}>Subreddit Z-A</button> }
-              <button onClick={this.props.sortByLargestTitle}>Largest Title</button> 
-              <button onClick={this.props.sortByNumComments}>Most Comments</button> 
+              {/* <button onClick={handleChange}></button> */}
+              { <button onClick={handleSubredditSort}>{this.state.subredditSort ? 'Subreddit A-Z' : 'Subreddit Z-A'}</button>  }
+              { <button onClick={handleTitleSort}>{this.state.titleSort ? 'Largest Title' : 'Smallest Title'}</button>  }
+              { <button onClick={handleCommentSort}>{this.state.commentSort ? 'Most Comments' : 'Least Comments'}</button>  } 
             </div>
           </div>
           <div className="main-container">
@@ -69,8 +109,11 @@ const mapDispatchToProps = (dispatch) => {
     sortBySubreddit: () => dispatch(sortBySubreddit()),
     sortByDescSubreddit: () => dispatch(sortByDescSubreddit()),
     sortByLargestTitle: () => dispatch(sortByLargestTitle()),
-    sortByNumComments: () => dispatch(sortByNumComments())
+    sortBySmallestTitle: () => dispatch(sortBySmallestTitle()),
+    sortByNumComments: () => dispatch(sortByNumComments()), 
+    sortByLeastNumComments: () => dispatch(sortByLeastNumComments())
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
