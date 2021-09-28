@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import Search from './Search'
 
 function Navigation(props) {
-
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
