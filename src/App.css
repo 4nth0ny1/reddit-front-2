@@ -321,6 +321,7 @@ textarea {
   bottom: 0;
   position: fixed;
   width: 100%;
+  border-top: 1px solid white;
 }
 
 .about, .terms {
@@ -341,4 +342,8 @@ textarea {
 
 .comment-form {
   margin: 20px;
+}
+
+.sort-buttons:focus {
+  background: #ff5700;
 }

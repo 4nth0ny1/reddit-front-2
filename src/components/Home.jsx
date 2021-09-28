@@ -10,6 +10,8 @@ class Home extends React.Component {
 
   componentDidMount(){
     this.props.fetchPosts()
+    .then(() => this.props.sortById())
+    document.getElementById('focus').focus()
   }
 
   constructor(props){
@@ -20,7 +22,7 @@ class Home extends React.Component {
       commentSort: true
     }
   }
-
+  
   render () {
     const handleSubredditSort = () => {
       if (this.state.subredditSort) {
@@ -66,16 +68,16 @@ class Home extends React.Component {
               <div className="create-button-right-right"></div>
             </div>
             <div className="sort-container">
-              <button onClick={this.props.sortById}>Latest Posts</button>
-              <button onClick={this.props.sortByCount}>Top Votes</button> 
+              <button id="focus" className="sort-buttons" onClick={this.props.sortById}>Latest Posts</button>
+              <button className="sort-buttons" onClick={this.props.sortByCount}>Top Votes</button> 
               {/* <button onClick={handleChange}></button> */}
-              { <button onClick={handleSubredditSort}>{this.state.subredditSort ? 'Subreddit A-Z' : 'Subreddit Z-A'}</button>  }
-              { <button onClick={handleTitleSort}>{this.state.titleSort ? 'Largest Title' : 'Smallest Title'}</button>  }
-              { <button onClick={handleCommentSort}>{this.state.commentSort ? 'Most Comments' : 'Least Comments'}</button>  } 
+              { <button className="sort-buttons" onClick={handleSubredditSort}>{this.state.subredditSort ? 'Subreddit A-Z' : 'Subreddit Z-A'}</button>  }
+              { <button className="sort-buttons" onClick={handleTitleSort}>{this.state.titleSort ? 'Largest Title' : 'Smallest Title'}</button>  }
+              { <button className="sort-buttons" onClick={handleCommentSort}>{this.state.commentSort ? 'Most Comments' : 'Least Comments'}</button>  } 
             </div>
           </div>
           <div className="main-container">
-            <PostContainer posts={this.props.posts} />
+            <PostContainer posts={this.props.filteredPosts} />
           </div>
         </div>
       </div>
@@ -85,7 +87,8 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.post.posts
+    posts: state.post.posts, 
+    filteredPosts: state.post.filteredPosts
   }
 }
 

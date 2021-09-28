@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import PostForm from './components/Posts/PostForm';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Home from './components/Home'
@@ -10,7 +10,7 @@ import Terms from './components/Terms'
 
 class App extends React.Component {
   render(){
-
+    console.log(this.props.location.pathname)
     return (
       <>
         <div className="App">
@@ -22,7 +22,7 @@ class App extends React.Component {
                 <Route path="/terms" exact component={() => <Terms />} />
                 <Route path="/posts/new" exact component={() => <PostForm />} />
               </Switch>
-            <Footer />
+            <Footer /> 
           </Router>
         </div>
       </>
@@ -30,4 +30,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default withRouter(App)
