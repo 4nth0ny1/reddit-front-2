@@ -7,8 +7,7 @@ class CommentForm extends Component {
         super (props)
         this.state = { 
             content: '', 
-            post_id: this.props.postId,
-            id: ''
+            post_id: this.props.postId
         }
     }
     
@@ -22,13 +21,16 @@ class CommentForm extends Component {
 
         const handleSubmit = (event) => {
             event.preventDefault()
-            this.props.addComment(this.state).then(comment => this.props.addAComment(comment))
-            Array.from(document.querySelectorAll("textarea")).forEach(
-                textarea => (textarea.value = "")
-            )
-            this.setState({
-                [event.target.name]: [{}]
-            })
+            if (this.state.content === "") {
+                alert('please complete out the form')
+            } else {
+                this.props.addComment(this.state).then(comment => this.props.addAComment(comment))
+                event.target.reset()
+                this.setState({
+                    content: ''
+                })
+            }
+
         }
 
         return(

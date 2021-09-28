@@ -20,6 +20,11 @@ class CommentEditForm extends Component {
 
         const handleSubmit = (event) => {
             event.preventDefault()
+            if (this.state.content === ""){
+                alert('please complete the form')
+                return
+            } 
+
             this.props.editComment(this.state).then(comment => this.props.editAComment(comment))
             this.props.setShowCommentEditForm(false)
             Array.from(document.querySelectorAll("input")).forEach(

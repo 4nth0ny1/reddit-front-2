@@ -333,6 +333,12 @@ textarea {
   margin-bottom: 200px;
 }
 
-.search-bar-input {
-  width: 400px;
+.comment-form > textarea {
+  color: white;
+  align-items: center;
+  padding: 10px;
+}
+
+.comment-form {
+  margin: 20px;
 }

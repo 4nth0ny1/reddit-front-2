@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { editPost } from "../../redux/actions/postActions";
+import { connect } from 'react-redux'
 
 class PostCount extends Component {
     constructor(props) {
@@ -28,19 +30,7 @@ class PostCount extends Component {
             count: this.state.count - 1,
             decrement: true
         })
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault()
-        fetch(`http://127.0.0.1:3000/posts/${this.props.post.id}`, {
-            method: "PATCH", 
-            headers: {
-              "Content-Type": "application/json", 
-            }, 
-            body: JSON.stringify(this.state)
-        })
-    }      
-    
+    }    
 
     render() {
 
@@ -50,9 +40,14 @@ class PostCount extends Component {
             })
         }
 
-        return(
+        const handleSubmit = (event) => {
+            event.preventDefault()
+            this.props.editPost(this.state)
+        }
+
+        return (
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <button className={`counter-button ${this.state.increment ? 'orange-bg' : ''}`} type="submit" onClick={this.increment}>▲</button>
                     { this.state.count < 0 ? <div>-</div> : <div onChange={onChange}>{this.state.count}</div>}
                     <button className={`counter-button ${this.state.decrement ? 'orange-bg' : ''}`} type="submit" onClick={this.decrement}>▼</button>
@@ -62,4 +57,10 @@ class PostCount extends Component {
     }
 }
 
-export default PostCount;
+const mapDispatchToProps = (dispatch) => {
+    return{
+        editPost: (post) => dispatch(editPost(post))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PostCount);

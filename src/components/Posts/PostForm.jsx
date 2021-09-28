@@ -24,6 +24,10 @@ class PostForm extends Component {
 
         const handleSubmit = (event) => {
             event.preventDefault()
+            if (this.state.title === '' || this.state.content === '' || this.state.subreddit === '') {
+                alert("please complete the form")
+                return
+            } 
             this.props.addPost(this.state)
             Array.from(document.querySelectorAll("input")).forEach(
                 input => (input.value = "")

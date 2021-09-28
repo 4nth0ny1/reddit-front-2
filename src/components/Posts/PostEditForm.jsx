@@ -26,7 +26,7 @@ class PostEditForm extends Component {
             this.props.setShowEditForm(false)
         }
 
-        return(
+        return (
             <>
                 <form className="post-edit-form-container" onSubmit={handleEditSubmit}>
                     <label htmlFor="title">title</label>

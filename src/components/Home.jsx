@@ -2,23 +2,12 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import PostContainer from './Posts/PostContainer'
 import { connect } from 'react-redux'
-import { 
-  fetchPosts, 
-  sortByCount, 
-  sortById, 
-  sortByLargestTitle,
-  sortBySmallestTitle,
-  sortBySubreddit, 
-  sortByDescSubreddit,
-  sortByNumComments, 
-  sortByLeastNumComments
-} 
-from '../redux/actions/postActions'
+import { fetchPosts, sortByCount, sortById, sortByLargestTitle, sortBySmallestTitle,
+  sortBySubreddit, sortByDescSubreddit, sortByNumComments, sortByLeastNumComments
+} from '../redux/actions/postActions'
 
 class Home extends React.Component {
 
-  
-  
   componentDidMount(){
     this.props.fetchPosts()
   }
@@ -33,7 +22,6 @@ class Home extends React.Component {
   }
 
   render () {
-
     const handleSubredditSort = () => {
       if (this.state.subredditSort) {
         this.props.sortBySubreddit()

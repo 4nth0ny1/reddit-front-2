@@ -5,9 +5,8 @@ const postReducer = (state = { posts: [] }, action) => {
                 posts: action.posts
             }
         case "FILTER_POSTS":
-            const filterBySearch = state.posts.filter(post => post.title.includes(action.search))
-            
-            return{
+            const filterBySearch = state.posts.filter(post => post.title.toLowerCase().includes(action.search))
+            return {
                 posts: [...filterBySearch]
             }
         case "ADD_POST":
@@ -15,7 +14,6 @@ const postReducer = (state = { posts: [] }, action) => {
                 posts: [...state.posts, action.post]
             }
         case "DELETE_POST":
-            
             const newPost = state.posts.filter(post => post.id !== action.id)
             return {
                 posts: newPost
