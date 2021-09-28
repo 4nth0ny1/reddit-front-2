@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import Search from './Search'
 
 function Navigation(props) {
+
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -10,13 +11,12 @@ function Navigation(props) {
           <Link className="navbar-brand" to="/">
             <img alt="logo" src="https://www.pngall.com/wp-content/uploads/2016/07/Reddit-Free-PNG-Image.png" />
           </Link>
-          <Search />
+          { props.location.pathname === '/' && <Search /> }
           <div>
             <ul className="navbar-nav ml-auto">
               <li
                 className={`nav-item  ${
-                  props.location.pathname === "/" ? "active" : ""
-                }`}
+                  props.location.pathname === "/" && "active" }`}
               >
                 <Link className="nav-link" to="/">
                   Home
