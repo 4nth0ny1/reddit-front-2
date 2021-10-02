@@ -64,8 +64,6 @@ class Home extends React.Component {
             <div className="create-post-container">
               <img alt="logo" src="https://i.pinimg.com/originals/f7/80/6c/f7806c9cd7d5e52cbb148541327a6b87.jpg" />
                   <Link to="/posts/new"><button className="create-button bg-dark">Create Post</button></Link>
-              <div className="create-button-left-right"></div>
-              <div className="create-button-right-right"></div>
             </div>
             <div className="sort-container">
               <button id="focus" className="sort-buttons" onClick={this.props.sortById}>Latest Posts</button>
