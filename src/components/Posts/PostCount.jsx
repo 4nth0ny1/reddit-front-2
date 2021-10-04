@@ -16,22 +16,6 @@ class PostCount extends Component {
         }
     }
 
-    increment = (e) => {
-        this.setState({
-            ...this.state.count,
-            count: this.state.count + 1,
-            increment: true
-        })
-    }
-
-    decrement = (e) => {
-        this.setState({
-            ...this.state.count,
-            count: this.state.count - 1,
-            decrement: true
-        })
-    }    
-
     render() {
 
         const onChange = (event) => {
@@ -45,12 +29,28 @@ class PostCount extends Component {
             this.props.editPost(this.state)
         }
 
+        const increment = (e) => {
+            this.setState({
+                ...this.state.count,
+                count: this.state.count + 1,
+                increment: true
+            })
+        }
+    
+        const decrement = (e) => {
+            this.setState({
+                ...this.state.count,
+                count: this.state.count - 1,
+                decrement: true
+            })
+        } 
+
         return (
             <>
                 <form onSubmit={handleSubmit}>
-                    <button className={`counter-button ${this.state.increment ? 'orange-bg' : ''}`} type="submit" onClick={this.increment}>▲</button>
+                    <button className={`counter-button ${this.state.increment ? 'orange-bg' : ''}`} type="submit" onClick={increment}>▲</button>
                     { this.state.count < 0 ? <div>-</div> : <div onChange={onChange}>{this.state.count}</div>}
-                    <button className={`counter-button ${this.state.decrement ? 'orange-bg' : ''}`} type="submit" onClick={this.decrement}>▼</button>
+                    <button className={`counter-button ${this.state.decrement ? 'orange-bg' : ''}`} type="submit" onClick={decrement}>▼</button>
                 </form>
             </>
         )
