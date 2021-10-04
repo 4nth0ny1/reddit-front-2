@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 html {
@@ -82,6 +83,9 @@ html {
   width: 10%;
   margin-right: 10px;
   background: #1a1a1b !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .create-button-right-right {

@@ -87,7 +87,6 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.post.posts, 
     filteredPosts: state.post.filteredPosts
   }
 }
